@@ -1,7 +1,7 @@
 % Ref: https://www.overleaf.com/latex/templates/emory-poster-template/skpfmpxjnqdh
 
 \documentclass[25pt, a0paper, landscape, margin=10mm, innermargin=15mm, blockverticalspace=15mm, subcolspace=8mm, dvipsnames]{tikzposter} % you need to leave in dvipsnames or else it undoes the orange edge colour??
-%\geometry{paperwidth=46.8in,paperheight=33.1in}
+
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
 %\usepackage[utf8]{inputenc}
@@ -90,7 +90,7 @@
         \item Ut imperdiet erat a mi condimentum, at dictum est pretium.
         \item Suspendisse ut purus vitae neque pharetra egestas et eu diam.
         \item Duis quis molestie ex, vel sodales ante.
-        \item Nullam lobortis velit sapien, a aliquet nunc tincidunt eget. Nulla facilisi.
+        \item Nullam lobortis velit sapien, a aliquet nunc tincidunt eget.
     \end{itemize}
     \vspace{1em}
     }
@@ -105,10 +105,11 @@
     } 
 \block{2: Methods}{
     {\fontsize{40}{40}\selectfont 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum.}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum.
         \begin{tikzfigure}[This is the epcc logo]
             \includegraphics[height=100mm]{epcclogo.png}
         \end{tikzfigure}
+        Quisque varius id dolor sed congue. Proin mollis lorem et tellus sodales, sit amet hendrerit urna vulputate. Cras maximus, dolor non laoreet vulputate, nisl nisl cursus ex, non pulvinar libero justo vitae ipsum.} 
         }
 \block[linewidth=3pt]{}{
     \textbf{Acknowledgements:} Funded by EPSRC funding details details details; with abundant gratitude to my supervisors and love to my cats.}
@@ -122,11 +123,12 @@
     \begin{multicols}{2}
     {\fontsize{40}{40}\selectfont 
     \textbf{Context \& Demographics} \newline Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. \newline
-    %}
-    %{\fontsize{40}{40}\selectfont 
-    \textbf{Assignment Practices} \newline Nam venenatis viverra urna eget bibendum. Aliquam vel pellentesque odio. Aliquam a ornare mauris, sed volutpat nisl. Nunc justo odio, facilisis quis gravida nec, tincidunt non erat. \newline
-    \textbf{Commit Contributions} \newline Nunc vitae tempor metus, sed varius tortor. Donec dapibus accumsan tempor. Praesent a augue accumsan, consectetur libero quis, suscipit nunc. \newline
-    \textbf{Developer Interaction Types} \newline  Suspendisse porta, metus vel eleifend molestie, tortor justo pulvinar nulla, vel volutpat nulla nulla vitae nulla. Donec tristique lacinia rutrum.
+    \vspace*{0.5em} \newline
+    \textbf{Assignment Practices} \newline Nam venenatis viverra urna eget bibendum. Aliquam vel pellentesque odio. Aliquam a ornare mauris, sed volutpat nisl. Nunc justo odio, facilisis quis gravida nec, tincidunt non erat. Nunc ultricies dictum lobortis. Donec nulla nunc, fermentum et pulvinar vel, ultricies quis purus. Duis libero nulla, laoreet eget sapien vel, rhoncus euismod odio. \newline
+    \vspace*{0.5em} \newline
+    \textbf{Commit Contributions} \newline Nunc vitae tempor metus, sed varius tortor. Donec dapibus accumsan tempor. Praesent a augue accumsan, consectetur libero quis, suscipit nunc. In eu tortor mi. In dolor augue, tempus eget velit nec, ornare fermentum nibh. Pellentesque sollicitudin faucibus pharetra. Phasellus accumsan felis sed nibh feugiat mattis. \newline
+    \vspace*{0.5em} \newline
+    \textbf{Developer Interaction Types} \newline  Suspendisse porta, metus vel eleifend molestie, tortor justo pulvinar nulla, vel volutpat nulla nulla vitae nulla. Donec tristique lacinia rutrum.  Aenean dui mi, aliquam nec elit egestas, ultrices interdum sapien. Mauris ut facilisis risus.
     }
     \end{multicols}
 }
@@ -146,7 +148,8 @@
 \block{4: Discussion \& Evaluation}{
     \begin{multicols}{2}
     {\fontsize{40}{40}\selectfont 
-    \textbf{Developer Interaction Types} \newline \lipsum[1] 
+    \textbf{Findings} \newline Suspendisse eget diam sed ipsum pellentesque venenatis. Quisque ut convallis nisi, nec tempus erat. Praesent posuere odio in fringilla fringilla. Quisque ut dolor vitae urna pretium consequat. Cras nec magna nec ipsum semper maximus. \newline
+    \textbf{Validity} \newline Phasellus tempus eu tortor elementum imperdiet. Donec dignissim sodales purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. \newline
     }
     \end{multicols}
 }

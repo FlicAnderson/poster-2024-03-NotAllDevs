@@ -1,6 +1,6 @@
 % Ref: https://www.overleaf.com/latex/templates/emory-poster-template/skpfmpxjnqdh
 
-\documentclass[25pt, a0paper, portrait, margin=10mm, innermargin=15mm, blockverticalspace=15mm, subcolspace=8mm, dvipsnames]{tikzposter} % you need to leave in dvipsnames or else it undoes the orange edge colour??
+\documentclass[25pt, a0paper, landscape, margin=10mm, innermargin=15mm, blockverticalspace=15mm, subcolspace=8mm, dvipsnames]{tikzposter} % you need to leave in dvipsnames or else it undoes the orange edge colour??
 %\geometry{paperwidth=46.8in,paperheight=33.1in}
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
@@ -16,7 +16,11 @@
 \usepackage[backend=bibtex,style=numeric, citestyle=ieee]{biblatex}
 \usepackage{xpatch}
 \usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{lipsum}
 
+\setlength{\columnsep}{2.5cm}
+\setlength{\columnseprule}{1mm}
 \pagecolor{Dandelion}
 
 % Ref: https://latex-cookbook.net/poster/
@@ -35,102 +39,65 @@
 \colorlet{blocktitlefgcolor}{white}
 \colorlet{blockframecolor}{epccnavy}
 
+\definetitlestyle{sampletitle}{
+    width=800mm, 
+    roundedcorners=20, 
+    linewidth=10pt, 
+    innersep=10pt,
+    titletotopverticalspace=15mm, titletoblockverticalspace=25mm 
+}{
+\begin{scope}[line width=\titlelinewidth, rounded corners=\titleroundedcorners]
+\draw[color=blocktitlebgcolor, fill=titlebgcolor]
+(\titleposleft,\titleposbottom) rectangle (\titleposright,\titlepostop);
+\end{scope}
+}
+\usetitlestyle[]{sampletitle}
+
 % Ref: https://tex.stackexchange.com/questions/309713/modify-font-style-in-title-of-tikzposter
 \settitle{
-%\begin{flushleft}
 \vbox{
-    \@titlegraphic \\[\TP@titlegraphictotitledistance] 
-    \color{titlefgcolor} {\sffamily \bfseries \Huge  \textsc{\@title} \par}
-    %\vspace*{1em}
-    {\sffamily \huge \@author \par} 
-    %\vspace*{1em} 
-    {\sffamily \LARGE \@institute}
+    \color{titlefgcolor} {\sffamily \bfseries \huge  \textsc{\@title} \par}
+    \vspace*{0.5em}
+    {{\sffamily \huge \@author}
+    \hspace{1em}
+    {\sffamily \LARGE \@institute \par}}
 }
-%\end{flushleft}
 }
 \makeatother
 
-% Ref: https://tex.stackexchange.com/questions/180234/how-can-i-make-my-title-wrap-in-a-tikzposter
-\makeatletter
-\def\title#1{\gdef\@title{\scalebox{\TP@titletextscale}{%
-			\begin{minipage}[t]{\linewidth}
-				%\centering
-				#1
-			\par
-				\vspace{0.5em}
-			\end{minipage}%
-}}}
-\makeatother
+
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
-\title{Not All Devs are Equal: \\ Personas in Research Software Development?}
+\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
 \author{Felicity 'Flic' Anderson\textsuperscript{$\dagger$}, Dr. Julien Sindt\textsuperscript{$\dagger$} and Prof. Neil Chue Hong\textsuperscript{$\dagger$}}
 \institute{\textsuperscript{$\dagger$}EPCC, The University of Edinburgh}
-%\titlegraphic{\includegraphics{epcclogo.png}}
+\titlegraphic{\includegraphics{epcclogo.png}}
 
-\makeatletter
-%\newcommand\insertlogoi[2][]{\def\@insertlogoi{\includegraphics[#1]{#2}}}
-%\newcommand\insertlogoi[2][]{\def\@insertlogoi{\hspace*{0.5in}\includegraphics[#1]{#2}}}
-\newcommand\insertlogoii[2][]{\def\@insertlogoii{\includegraphics[#1]{#2}}}
-%\newcommand\insertlogoii[2][]{\def\@insertlogoii{\hspace*{-7.5in}\includegraphics[#1]{#2}}}
-\newlength\LogoSep
-\setlength\LogoSep{0pt}
 
-%\insertlogoi[width=8cm]{epcclogo.png}
-\insertlogoii[width=8cm]{epcclogo.png}
 
-\renewcommand\maketitle[1][]{  % #1 keys
-	\normalsize
-	\setkeys{title}{#1}
-	% Title dummy to get title height
-	\node[transparent,inner sep=\TP@titleinnersep, line width=\TP@titlelinewidth, anchor=north, minimum width=\TP@visibletextwidth-2\TP@titleinnersep]
-	(TP@title) at ($(0, 0.5\textheight-\TP@titletotopverticalspace)$) {\parbox{\TP@titlewidth-2\TP@titleinnersep}{\TP@maketitle}};
-	\draw let \p1 = ($(TP@title.north)-(TP@title.south)$) in node {
-		\setlength{\TP@titleheight}{\y1}
-		\setlength{\titleheight}{\y1}
-		\global\TP@titleheight=\TP@titleheight
-		\global\titleheight=\titleheight
-	};
-	
-	% Compute title position
-	\setlength{\titleposleft}{-0.5\titlewidth}
-	\setlength{\titleposright}{\titleposleft+\titlewidth}
-	\setlength{\titlepostop}{0.5\textheight-\TP@titletotopverticalspace}
-	\setlength{\titleposbottom}{\titlepostop-\titleheight}
-	
-	% Title style (background)
-	\TP@titlestyle
-	
-	% Title node
-	\node[inner sep=\TP@titleinnersep, line width=\TP@titlelinewidth, anchor=north, minimum width=\TP@visibletextwidth-2\TP@titleinnersep]
-	at (0,0.5\textheight-\TP@titletotopverticalspace)
-	(title)
-	{\parbox{\TP@titlewidth-2\TP@titleinnersep}{\TP@maketitle}};
-	
-	
-	\node[inner sep=0pt,anchor=east] 
-	at ([xshift=\LogoSep]title.east)
-	{\@insertlogoii};
-
-	% Settings for blocks
-	\normalsize
-	\setlength{\TP@blocktop}{\titleposbottom-\TP@titletoblockverticalspace}
-}
-\makeatother
 
 % begin document
-\begin{document}\maketitle
-\begin{columns}\column{.5}
-\block{0: Abstract}{
-% Ref: https://tex.stackexchange.com/questions/183833/is-there-any-way-to-create-columns-inside-a-tikzposter-block
-    %\begin{minipage}
-        {\fontsize{50}{60}\selectfont Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum. Curabitur fermentum risus ac enim laoreet, in fermentum augue vehicula.}
+\begin{document}
+%\useblockstyle{Basic}
+\maketitle
 
-        %{\fontsize{100}{120}\selectfont Foo}{\fontsize{5}{6}\selectfont bar!}\\
-        %{\fontsize{50}{60}\selectfont Foo}{\fontsize{5}{6}\selectfont bar!}\\
-        %{\Huge Foo}{\tiny bar!}\\
-        % via https://tex.stackexchange.com/a/499070
-    %\end{minipage}%
+\begin{columns}\column{.5}
+
+\block{0: Conclusions}{
+    {\fontsize{50}{50}\selectfont 
+    \vspace{1em}
+    \begin{itemize}
+        \item Ut imperdiet erat a mi condimentum, at dictum est pretium.
+        \item Suspendisse ut purus vitae neque pharetra egestas et eu diam.
+        \item Duis quis molestie ex, vel sodales ante.
+        \item Nullam lobortis velit sapien, a aliquet nunc tincidunt eget. Nulla facilisi.
+    \end{itemize}
+    \vspace{1em}
+    }
+    {\fontsize{45}{45}\selectfont
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at.  
+    %\vspace{1em}
+    }        % via https://tex.stackexchange.com/a/499070
 	} 
 \block{1: Background}{
     {\fontsize{40}{40}\selectfont 
@@ -138,58 +105,52 @@
     } 
 \block{2: Methods}{
     {\fontsize{40}{40}\selectfont 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum. Curabitur fermentum risus ac enim laoreet, in fermentum augue vehicula.}
-        %\vspace{1em}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum.}
         \begin{tikzfigure}[This is the epcc logo]
-            \includegraphics[width=0.55\linewidth]{epcclogo.png}
+            \includegraphics[height=100mm]{epcclogo.png}
         \end{tikzfigure}
-        %\vspace{1em}
-    } 
+        }
+\block[linewidth=3pt]{}{
+    \textbf{Acknowledgements:} Funded by EPSRC funding details details details; with abundant gratitude to my supervisors and love to my cats.}
+
 \column{.5}
 \block{3: Results}{
-    {\fontsize{40}{40}\selectfont 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at.
-    }
-    %\vspace{1em}
-    \begin{tikzfigure}[This is the epcc logo again]
-        \includegraphics[width=0.75\linewidth]{epcclogo.png}
+    \begin{tikzfigure}[]
+        \includegraphics[width=0.45\linewidth]{epcclogo.png}
         \includegraphics[width=0.45\linewidth]{epcclogo.png}
     \end{tikzfigure}
-    \begin{tikzfigure}[This is still the epcc logo]
-        \includegraphics[width=0.55\linewidth]{epcclogo.png}
-    \end{tikzfigure}
-    %\vspace{1em}
-}  
-\block{4: Discussion \& Evaluation}{
+    \begin{multicols}{2}
     {\fontsize{40}{40}\selectfont 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. 
-    Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum. Curabitur fermentum risus ac enim laoreet, in fermentum augue vehicula.
+    \textbf{Context \& Demographics} \newline Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. \newline
+    %}
+    %{\fontsize{40}{40}\selectfont 
+    \textbf{Assignment Practices} \newline Nam venenatis viverra urna eget bibendum. Aliquam vel pellentesque odio. Aliquam a ornare mauris, sed volutpat nisl. Nunc justo odio, facilisis quis gravida nec, tincidunt non erat. \newline
+    \textbf{Commit Contributions} \newline Nunc vitae tempor metus, sed varius tortor. Donec dapibus accumsan tempor. Praesent a augue accumsan, consectetur libero quis, suscipit nunc. \newline
+    \textbf{Developer Interaction Types} \newline  Suspendisse porta, metus vel eleifend molestie, tortor justo pulvinar nulla, vel volutpat nulla nulla vitae nulla. Donec tristique lacinia rutrum.
     }
+    \end{multicols}
 }
+    % \begin{minipage}[t]{0.48\linewidth}
+    % {\fontsize{40}{40}\selectfont 
+    % Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at.}
+    % \end{minipage}
+    % \begin{adjustbox}{valign=t}
+    % \begin{minipage}[t]{0.48\linewidth}
+    % {\fontsize{40}{40}\selectfont 
+    % Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at.}
+    % \end{minipage}
+    % \end{adjustbox}
+    %\vspace{1em}
+    %\vspace{1em}
+%}
+\block{4: Discussion \& Evaluation}{
+    \begin{multicols}{2}
+    {\fontsize{40}{40}\selectfont 
+    \textbf{Developer Interaction Types} \newline \lipsum[1] 
+    }
+    \end{multicols}
+}
+\block[linewidth=3pt]{}{
+    \textbf{References:} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed.}
 \end{columns}
-\block{5: Conclusions and Future Work}{
-    {\fontsize{50}{50}\selectfont 
-    \vspace{1em}
-    \begin{itemize}
-    
-    \item Ut imperdiet erat a mi condimentum, at dictum est pretium.
-    
-    \item Suspendisse ut purus vitae neque pharetra egestas et eu diam.
-    
-    \item Duis quis molestie ex, vel sodales ante.
-    
-    \item Nullam lobortis velit sapien, a aliquet nunc tincidunt eget. Nulla facilisi.
-    
-    \end{itemize}
-    \vspace{1em}
-    }
-    {\fontsize{45}{45}\selectfont
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum. 
-    \vspace{1em}
-    }
-}
-
-\block{}{
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. 
-} 
 \end{document}

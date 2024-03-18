@@ -32,6 +32,7 @@
 \usetheme{Default}
 \usebackgroundstyle{Default}
 \definecolor{epccnavy}{HTML}{1D2A3D}
+\definecolor{universityred}{HTML}{D50032}
 \colorlet{backgroundcolor}{white} % <<< this makes bg white
 \colorlet{framecolor}{epccnavy}%Dandelion}
 \colorlet{titlefgcolor}{epccnavy}
@@ -59,9 +60,10 @@
 \vbox{
     %\@titlegraphic \\[\TP@titlegraphictotitledistance] \centering
     \color{titlefgcolor} {\sffamily \bfseries \huge  \textsc{\@title} \par}
+    \color{universityred} {\sffamily \bfseries \huge \subtitle}   
     \vspace*{0.5em}
     \begin{flushleft}
-    {{\sffamily \huge \@author}
+    {\color{titlefgcolor} {\sffamily \huge \@author}
     \hspace{1em}
     {\sffamily \LARGE \@institute \par}}
     \end{flushleft}
@@ -82,8 +84,10 @@
 \makeatother
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
-\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
-\author{Felicity 'Flic' Anderson\textsuperscript{$\dagger$}, Dr. Julien Sindt\textsuperscript{$\dagger$} and Prof. Neil Chue Hong\textsuperscript{$\dagger$}}
+%\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
+\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X?}}
+\newcommand{\subtitle}{Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}
+\author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}}, Julien Sindt\textsuperscript{$\dagger$} and Neil Chue Hong\textsuperscript{$\dagger$}}
 \institute{\textsuperscript{$\dagger$}EPCC, University of Edinburgh}
 %\titlegraphic{\includegraphics{epcclogo.png}}
 
@@ -92,11 +96,13 @@
 %\newcommand\insertlogoi[2][]{\def\@insertlogoi{\hspace*{0.5in}\includegraphics[#1]{#2}}}
 \newcommand\insertlogoii[2][]{\def\@insertlogoii{\includegraphics[#1]{#2}}}
 %\newcommand\insertlogoii[2][]{\def\@insertlogoii{\hspace*{-7.5in}\includegraphics[#1]{#2}}}
+%\newcommand\insertlogoiii[2][]{\def\@insertlogoiii{\includegraphics[#1]{#2}}}
 \newlength\LogoSep
 \setlength\LogoSep{0pt}
 
 \insertlogoi[width=14cm]{informaticsUoE.png}
-\insertlogoii[width=16cm]{epcclogo.png}
+\insertlogoii[width=15cm]{epcclogo.png}
+%\insertlogoii[width=15cm]{EpccANDEmailQRsidebyside.png}
 
 \renewcommand\maketitle[1][width=800mm]{  % #1 keys
 	\normalsize

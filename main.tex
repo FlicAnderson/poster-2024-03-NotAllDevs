@@ -18,6 +18,7 @@
 \usepackage{xcolor}
 \usepackage{multicol}
 \usepackage{lipsum}
+\usepackage{setspace}
 
 \setlength{\columnsep}{2.5cm}
 \setlength{\columnseprule}{1mm}
@@ -58,8 +59,10 @@
 % Ref: https://tex.stackexchange.com/questions/309713/modify-font-style-in-title-of-tikzposter
 \settitle{ \centering
 \vbox{
+    \begin{spacing}{1.5}
     %\@titlegraphic \\[\TP@titlegraphictotitledistance] \centering
     \color{titlefgcolor} {\sffamily \bfseries \huge  \textsc{\@title} \par}
+    \vspace*{0.75em}
     \color{universityred} {\sffamily \bfseries \huge \subtitle}   
     \vspace*{0.5em}
     \begin{flushleft}
@@ -67,6 +70,7 @@
     \hspace{1em}
     {\sffamily \LARGE \@institute \par}}
     \end{flushleft}
+    \end{spacing}
 }
 }
 \makeatother
@@ -85,8 +89,8 @@
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
 %\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
-\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X?}}
-\newcommand{\subtitle}{Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}
+\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{78}{78}\selectfont {Identifying Research Software Developer Personas Could Create Better Research Software Developers.} }}}
+\newcommand{\subtitle}{Are YOU RS-10X? Mining GitHub Data to Describe Developer/Repository Interaction Types}
 \author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}}, Julien Sindt\textsuperscript{$\dagger$} and Neil Chue Hong\textsuperscript{$\dagger$}}
 \institute{\textsuperscript{$\dagger$}EPCC, University of Edinburgh}
 %\titlegraphic{\includegraphics{epcclogo.png}}
@@ -146,34 +150,33 @@
 }
 \makeatother
 
+\onehalfspacing
 % begin document
 \begin{document}
 %\useblockstyle{Basic}
 \maketitle
-
-\begin{columns}\column{.5}
+\begin{columns}
+\column{.5}
 
 \block{0: Conclusions}{
-    {\fontsize{50}{50}\selectfont 
+    {\fontsize{45}{45}\selectfont 
     %\vspace{1em}
     \begin{itemize}
-        \item Ut imperdiet erat a mi condimentum, at dictum est pretium.
-        \item Suspendisse ut purus vitae neque pharetra egestas et eu diam.
-        \item Duis quis molestie ex, vel sodales ante.
-        \item Nullam lobortis velit sapien, a aliquet nunc tincidunt eget.
+    \setlength{\itemindent}{0.5em}
+    \setlength\itemsep{0.2em}
+        \item \textbf{Mining Research Software (RS) repository data can help understand RS development practices.}  
+        \item Assignment to and engagement with GitHub features Issue Tickets (ITx) and Pull Requests (PRs) correlate with commit contributions.
+        \item These metrics have limitations, but in combination with other properties may give a fuller picture of development responsibility or activity.
+        \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? } 
     \end{itemize}
     \vspace{1em}
     }
     {\fontsize{45}{45}\selectfont
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at.  
+    This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.  
     %\vspace{1em}
     }        % via https://tex.stackexchange.com/a/499070
 	} 
-\block{1: Background}{
-    {\fontsize{40}{40}\selectfont 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum. Curabitur fermentum risus ac enim laoreet, in fermentum augue vehicula.}
-    } 
-\block{2: Methods}{
+\block{1: Approach}{
     {\fontsize{40}{40}\selectfont 
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum.
         \begin{tikzfigure}[This is the epcc logo]

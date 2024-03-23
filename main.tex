@@ -166,8 +166,8 @@
     \setlength\itemsep{0.2em}
         \item \textbf{Mining Research Software (RS) repository data can help understand RS development practices.}  
         \item Assignment to and engagement with GitHub features Issue Tickets (ITx) and Pull Requests (PRs) correlate with commit contributions.
-        \item These metrics have limitations, but in combination with other properties may give a fuller picture of development responsibility or activity.
-        \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? } 
+        \item These metrics have limitations, but in combination with other properties may give a fuller picture of development responsibilities or activity.
+        \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? Can they predict effectiveness?} 
     \end{itemize}
     \vspace{1em}
     }
@@ -178,7 +178,28 @@
 	} 
 \block{1: Approach}{
     {\fontsize{40}{40}\selectfont 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. Duis aliquam, nulla eget accumsan pretium, nunc sapien molestie est, vitae iaculis mauris nulla euismod ipsum.
+        Research Software is any software used to generate research, across all academic fields. 
+        % Dev Personas in OSS; SE  
+        % What do we know about how RSEs interact with their repos?  Repo usage at all %?  
+        % Data Mining background as a method 
+
+        https://\textbf{zenodo}.org/api/records API was queried for software records with a DOI (common in published research software); 
+        records were selected with a `github.com' URL. These were presumed to be RS repositories. 
+        
+        These repositories were mined via \textbf{GitHub REST API} to gather repository statistics (xxxxxxx, yyyyyyyy, zzzzzzzz), contributor data (xxxxxxx, yyyyyyyy, zzzzzzzz), and issue ticket data and pull request data (xxxxxxx, yyyyyyyy, zzzzzzzz).  
+
+        % inclusion/exclusion criteria... languages, size, age, etc 
+
+        % table of stats for total repo dataset N=1823 number of devs; average commits; average repo age; average number of issue tickets / PRs; 
+
+
+        This larger dataset was subset to select repositories with larger numbers of developer contributors: 
+
+        % table of stats for subset big10 dataset N=10: number of devs; average commits; average repo age; average number of issue tickets / PRs; 
+
+        % PLOT: issue ticket and PR usage yes vs no
+        % UPGRADE: split yes into assigned vs unassigned 
+        
         \begin{tikzfigure}[This is the epcc logo]
             \includegraphics[height=100mm]{epcclogo.png}
         \end{tikzfigure}
@@ -195,14 +216,56 @@
             \includegraphics[width=0.45\linewidth]{epcclogo.png}
         \end{tikzfigure}
     \begin{multicols}{2}
+    
     {\fontsize{40}{40}\selectfont 
-    \textbf{Context \& Demographics} \newline Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed. Aenean eleifend ante urna, id lacinia est imperdiet at. \newline
-    \vspace*{0.4em} \newline
-    \textbf{Assignment Practices} \newline Nam venenatis viverra urna eget bibendum. Aliquam vel pellentesque odio. Aliquam a ornare mauris, sed volutpat nisl. Nunc justo odio, facilisis quis gravida nec, tincidunt non erat. Nunc ultricies dictum lobortis. Donec nulla nunc, fermentum et pulvinar vel, ultricies quis purus.\newline
-    \vspace*{0.4em} \newline
-    \textbf{Commit Contributions} \newline Nunc vitae tempor metus, sed varius tortor. Donec dapibus accumsan tempor. Praesent a augue accumsan, consectetur libero quis, suscipit nunc. In eu tortor mi. In dolor augue, tempus eget velit nec, ornare fermentum nibh. Pellentesque sollicitudin faucibus pharetra. \newline
-    \vspace*{0.4em} \newline
-    \textbf{Developer Interaction Types} \newline  Suspendisse porta, metus vel eleifend molestie, tortor justo pulvinar nulla, vel volutpat nulla nulla vitae nulla. Donec tristique lacinia rutrum.  Aenean dui mi, aliquam nec elit egestas. 
+    \textbf{Context \& Demographics} \newline 
+    
+    TEXT ABOUT CONTENT AND DEMOGRAPHICS ETC ETC ETC 
+    % RS repos with github.coms vs not. 
+    % repo age 
+    % repo size (N commits) 
+    % dev team size (N Devs) 
+    % repo recent activity  
+    % languages 
+    % Repos with issues and prs vs Not using.
+    % numbers of issues and PRs
+    \vspace*{0.4em} 
+    \par
+    
+    \textbf{Assignment Practices} \newline  
+    NNN of NNN items in NNN repositories were assigned to 1+ developers.   
+    % BEWARE! _s need to be escaped for usage. 
+    %\vspace*{0.1em}
+    % TABLE OF ASSIGNMENT CATEGORIES PERCENTAGE
+    \begin{center}
+    \begin{tabular}{ l c c c} 
+     %\hline
+     \textbf{Assignment}\\ \textbf{Category} & \textbf{Devs (\%)} \\
+     %\hline
+     BOTH & 00 \\ 
+     %\hline
+     ISSUES\_ONLY & 00 \\
+     %\hline
+     PRs\_ONLY & 00 \\
+     %\hline
+     NEITHER & 00 \\ 
+     %\hline
+    \end{tabular}
+    \end{center}
+    %\vspace*{0.1em}
+    Assignment types were categorised as \textit{being assigned to 1+ Issue and/or 1+ PR}
+    \vspace*{0.4em} 
+    \par
+    
+   
+    \textbf{Commit Contributions} \newline 
+    Nunc vitae tempor metus, sed varius tortor. Donec dapibus accumsan tempor. Praesent a augue accumsan, consectetur libero quis, suscipit nunc. In eu tortor mi. In dolor augue, tempus eget velit nec, ornare fermentum nibh. Pellentesque sollicitudin faucibus pharetra.   
+    \vspace*{0.4em} 
+    \par
+    
+    \textbf{Developer Interaction Types} \newline 
+    Suspendisse porta, metus vel eleifend molestie, tortor justo pulvinar nulla, vel volutpat nulla nulla vitae nulla. Donec tristique lacinia rutrum.  Aenean dui mi, aliquam nec elit egestas.
+    \par
     }
     \end{multicols}
 }
@@ -213,14 +276,6 @@
     \textbf{Validity} \newline Phasellus tempus eu tortor elementum imperdiet. Donec dignissim sodales purus. \newline
     }
 }
-% \block{4: Discussion \& Evaluation}{
-%     \begin{multicols}{2}
-%     {\fontsize{40}{40}\selectfont 
-%     \textbf{Findings} \newline Suspendisse eget diam sed ipsum pellentesque venenatis. Quisque ut convallis nisi, nec tempus erat. Praesent posuere odio in fringilla fringilla. Quisque ut dolor vitae urna pretium consequat. Cras nec magna nec ipsum semper maximus. \newline
-%     \textbf{Validity} \newline Phasellus tempus eu tortor elementum imperdiet. Donec dignissim sodales purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. \newline
-%     }
-%     \end{multicols}
-% }
 \block[linewidth=3pt]{}{
     \textbf{References:} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed.}
 \end{columns}

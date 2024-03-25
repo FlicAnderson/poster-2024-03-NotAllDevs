@@ -89,9 +89,9 @@
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
 %\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
-\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{78}{78}\selectfont {Identifying Research Software Developer Personas Could Create Better Research Software Developers.} }}}
+\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{78}{78}\selectfont {Identifying Research Software Developer Personas Could Create Better Research Software Developers} }}}
 \newcommand{\subtitle}{Are YOU an RS-10X? Mining GitHub to Describe Developer/Repository Interaction Types}
-\author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}}, Julien Sindt\textsuperscript{$\dagger$} and Neil Chue Hong\textsuperscript{$\dagger$}}
+\author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}}, Dr. Julien Sindt\textsuperscript{$\dagger$} \& Prof. Neil Chue Hong\textsuperscript{$\dagger$}}
 \institute{\textsuperscript{$\dagger$}EPCC, University of Edinburgh}
 %\titlegraphic{\includegraphics{epcclogo.png}}
 
@@ -108,7 +108,7 @@
 \insertlogoii[width=15cm]{epcclogo.png}
 %\insertlogoii[width=15cm]{EpccANDEmailQRsidebyside.png}
 
-\renewcommand\maketitle[1][width=800mm]{  % #1 keys
+\renewcommand\maketitle[1][width=800mm, linewidth=6pt]{  % #1 keys
 	\normalsize
 	\setkeys{title}{#1}
 	% Title dummy to get title height
@@ -158,30 +158,35 @@
 \begin{columns}
 \column{.5}
 
-\block{0: Conclusions}{
+\block[linewidth=5pt]{0: Identifying the Habits of Highly Effective Developers}{
+    \vspace{0.4em}
     {\fontsize{45}{45}\selectfont 
     %\vspace{1em}
+    \textbf{This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.}
+    \vspace{1em}
     \begin{itemize}
     \setlength{\itemindent}{0.5em}
     \setlength\itemsep{0.2em}
-        \item \textbf{Mining Research Software (RS) repository data can help understand RS development practices.}  
-        \item Assignment to and engagement with GitHub features Issue Tickets (ITx) and Pull Requests (PRs) correlate with commit contributions.
-        \item These metrics have limitations, but in combination with other properties may give a fuller picture of development responsibilities or activity.
+        %\item \textbf{Mining Research Software (RS) repository data can help understand RS development practices.}  
+        \item Assignment to GitHub features Issue Tickets (ITx) and Pull Requests (PRs) correlate with commit contributions.
+        \item Individually limited metrics can be combined to give better picture of development responsibilities or activity.
         \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? Can they predict effectiveness?} 
     \end{itemize}
     \vspace{1em}
     }
-    {\fontsize{45}{45}\selectfont
-    This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.  
+    %{\fontsize{45}{45}\selectfont
+    %This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.  
     %\vspace{1em}
-    }        % via https://tex.stackexchange.com/a/499070
-	} 
-\block{1: Approach}{
+    %}        % via https://tex.stackexchange.com/a/499070
+} 
+\block[linewidth=5pt]{1: Mining RS Repository Data To Understand Dev/Repo Interactions}{
+    \vspace{1em}
     {\fontsize{40}{40}\selectfont 
-        Research Software is any software used to generate research, across all academic fields. 
+        Research Software is any software used to generate research, across academic fields. 
         % Dev Personas in OSS; SE  
         % What do we know about how RSEs interact with their repos?  Repo usage at all %?  
         % Data Mining background as a method 
+        \vspace{1em}
 
         https://\textbf{zenodo}.org/api/records API was queried for software records with a DOI (common in published research software); 
         records were selected with a `github.com' URL. These were presumed to be RS repositories. 
@@ -209,7 +214,7 @@
     \textbf{Acknowledgements:} Funded by EPSRC funding details details details; with abundant gratitude to my supervisors and love to my cats.}
 
 \column{.5}
-\block{3: Results}{
+\block[linewidth=5pt]{2: More Responsibility = More Action?}{
         \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
             \includegraphics[width=0.45\linewidth]{epcclogo.png}
@@ -219,7 +224,7 @@
     
     {\fontsize{40}{40}\selectfont 
     \textbf{Context \& Demographics} \newline 
-    
+    %Around a third of repositories use Issues and PRs. 
     TEXT ABOUT CONTENT AND DEMOGRAPHICS ETC ETC ETC 
     % RS repos with github.coms vs not. 
     % repo age 
@@ -259,21 +264,42 @@
     
    
     \textbf{Commit Contributions} \newline 
-    Nunc vitae tempor metus, sed varius tortor. Donec dapibus accumsan tempor. Praesent a augue accumsan, consectetur libero quis, suscipit nunc. In eu tortor mi. In dolor augue, tempus eget velit nec, ornare fermentum nibh. Pellentesque sollicitudin faucibus pharetra.   
+    % Contribution numbers overall.    
+    % Commits per dev contribution as proportion of their repo total  
+    % Commits per dev average across 10 repos by assignment category  
+    Commit numbers positively correlate with number of items assigned. \textit{Activity and responsibility proxies seem to correlate.}
     \vspace*{0.4em} 
     \par
     
     \textbf{Developer Interaction Types} \newline 
-    Suspendisse porta, metus vel eleifend molestie, tortor justo pulvinar nulla, vel volutpat nulla nulla vitae nulla. Donec tristique lacinia rutrum.  Aenean dui mi, aliquam nec elit egestas.
+    %High impact grouping vs low impact grouping
+    Developers assigned to 'BOTH' item types have almost 10\% higher commit numbers than all other assignment groups. 
+    These might make up a 'highly interactive' type. 
+    Differences between Assignment Category groupings lay RS Developer Personas groundwork.
     \par
     }
     \end{multicols}
 }
-\block{4: Discussion \& Evaluation}{
+\block[linewidth=5pt]{3: Using RS Developer Personas in Future Work}{
+    \vspace{1em}
     {\fontsize{40}{40}\selectfont 
-    \textbf{Findings} \newline Suspendisse eget diam sed ipsum pellentesque venenatis. Quisque ut convallis nisi, nec tempus erat. Praesent posuere odio in fringilla fringilla. Quisque ut dolor vitae urna pretium consequat. Cras nec magna nec ipsum semper maximus, per conubia nostra, per inceptos himenaeos. \newline
+    
+
+    %\textbf{Findings} \newline 
+    Larger team sizes more likely to use Issues and PRs. WHY? They are a communication tool. [CITATION NEEDED!] 
+    Assignment is rare within wider RS population, but a feature of high-interaction repositories.
+    % WHY?
+    [CITATION NEEDED!]     
+    \newline
     \vspace*{0.4em} \newline
-    \textbf{Validity} \newline Phasellus tempus eu tortor elementum imperdiet. Donec dignissim sodales purus. \newline
+    \textbf{Limitations} \newline 
+    \textit{Skewed Sample}: using Zenodo & GitHub services means users already follow some 'best practice'.  
+    Sample is non-random (largest numbers of contributors) so may not represent smaller teams well. 
+    \textit{Variation}: 'accepted practices' within repositories may restrict developer freedom. 
+    RS projects may not be comparable in terms of development style, RS goals, or effort intensity.
+    \textit{Time}: projects may change over time, practices may change to reflect this - how can we capture 'typical' behaviour?  
+    \textit{Causation}: This work \textbf{does not establish causation} between assignment and commit numbers. 
+    \newline
     }
 }
 \block[linewidth=3pt]{}{

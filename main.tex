@@ -168,7 +168,7 @@
     \setlength{\itemindent}{0.5em}
     \setlength\itemsep{0.2em}
         %\item \textbf{Mining Research Software (RS) repository data can help understand RS development practices.}  
-        \item Assignment to GitHub features Issue Tickets (ITx) and Pull Requests (PRs) correlate with commit contributions.
+        \item Assignment to GitHub features \textbf{Issue Tickets and Pull Requests} (PRs) correlate with commit contributions.
         \item Individually limited metrics can be combined to give better picture of development responsibilities or activity.
         \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? Can they predict effectiveness?} 
     \end{itemize}
@@ -204,13 +204,13 @@
             \includegraphics[height=270mm]{Figures/epccposter - DataMiningWorkflow.pdf}
         \end{tikzfigure}
 
-        Research Software is any software used to generate research, across academic fields. 
+        Research Software (RS) is any software used to generate research, across academic fields. 
         % Dev Personas in OSS; SE  
         % What do we know about how RSEs interact with their repos?  Repo usage at all %?  
         % Data Mining background as a method 
         \vspace{1em}
         
-        Quisque varius id dolor sed congue. Proin mollis lorem et tellus sodales, sit amet hendrerit urna vulputate. Cras maximus, dolor non laoreet vulputate, nisl nisl cursus ex.
+        GitHub API data for public projects with a DOI (often required for publication) across all fields have been used, with inclusion/exclusion criteria.
         \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
             \includegraphics[width=0.96\linewidth]{Figures/bars_usage.png}
@@ -293,19 +293,16 @@
 \block[linewidth=5pt]{3: Using RS Developer Personas in Future Work}{
     \vspace{1em}
     {\fontsize{40}{40}\selectfont 
-    
-
-    %\textbf{Findings} \newline 
-    Larger team sizes more likely to use Issues and PRs. WHY? They are a communication tool. [CITATION NEEDED!] 
-    Assignment is rare within wider RS population, but a feature of high-interaction repositories.
-    % WHY?
-    [CITATION NEEDED!]     
-    \newline
-    \vspace*{0.4em} 
-    \textbf{Non-random selection} of larger repositories using Zenodo \& GitHub services means users already follow some 'best practice'.  
-    'Accepted practices' within repositories may restrict development options, while RS projects can be hard to compare in terms of development style, RS goals, or effort intensity.
-    \textbf{Projects change} over time, practices may change to reflect this - how can we capture 'typical' behaviour?  
-    This work \textbf{does not establish causation} between assignment and commit numbers. 
+    \textbf{Ask Me About Limitations...} 
+    Sample potentially skews towards 'best practice'; assignment vs activity; not all commits are equal; developer metrics problems; project comparison difficulties; capturing practice changes over time; correlation vs causation.
+    \vspace{0.5em} \newline
+    \textbf{Future Work:}
+    \begin{itemize}
+        \item Using \textbf{additional properties} and \textbf{clustering analysis} to fully describe Personas;
+        \item Linking Personas to \textbf{software quality metrics};
+        \item \textbf{Distribution of Personas} within project teams;
+        \item \textbf{Comparing developer Personas to effectiveness} (\textit{popularity, usage, citations}) of resulting software.
+    \end{itemize}  
     }
 }
 \end{columns}

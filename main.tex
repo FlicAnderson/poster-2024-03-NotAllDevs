@@ -1,6 +1,6 @@
 % Ref: https://www.overleaf.com/latex/templates/emory-poster-template/skpfmpxjnqdh
 
-\documentclass[25pt, a0paper, landscape, margin=10mm, innermargin=15mm, blockverticalspace=15mm, subcolspace=8mm, dvipsnames]{tikzposter} % you need to leave in dvipsnames or else it undoes the orange edge colour??
+\documentclass[25pt, a0paper, landscape, margin=10mm, innermargin=15mm, blockverticalspace=10mm, subcolspace=7mm, dvipsnames]{tikzposter} % you need to leave in dvipsnames or else it undoes the orange edge colour??
 
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
@@ -59,15 +59,15 @@
 % Ref: https://tex.stackexchange.com/questions/309713/modify-font-style-in-title-of-tikzposter
 \settitle{ \centering
 \vbox{
-    \begin{spacing}{1.5}
+    \begin{spacing}{1.2}
     %\@titlegraphic \\[\TP@titlegraphictotitledistance] \centering
     \color{titlefgcolor} {\sffamily \bfseries \huge  \textsc{\@title} \par}
     \vspace*{0.75em}
     \color{universityred} {\sffamily \bfseries \huge \subtitle}   
-    \vspace*{0.5em}
+    %\vspace*{0.2em}
     \begin{flushleft}
     {\color{titlefgcolor} {\sffamily \huge \@author}
-    \hspace{1em}
+    \hspace{0.4em}
     {\sffamily \LARGE \@institute \par}}
     \end{flushleft}
     \end{spacing}
@@ -91,7 +91,7 @@
 %\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
 \title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{78}{78}\selectfont {Identifying Research Software Developer Personas Could Create Better Research Software Developers} }}}
 \newcommand{\subtitle}{Are YOU an RS-10X? Mining GitHub to Describe Developer/Repository Interaction Types}
-\author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}}}
+\author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}, Dr. Julien Sindt\textsuperscript{$\dagger$} \& Prof. Neil Chue Hong\textsuperscript{$\dagger$}}}
 \institute{\textsuperscript{$\dagger$}EPCC, University of Edinburgh}
 %\titlegraphic{\includegraphics{epcclogo.png}}
 
@@ -160,7 +160,7 @@
 
 \block[linewidth=5pt]{0: Identifying the Habits of Highly Effective Developers}{
     \vspace{0.4em}
-    {\fontsize{45}{45}\selectfont 
+    {\fontsize{42}{42}\selectfont 
     %\vspace{1em}
     \textbf{This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.}
     \vspace{1em}
@@ -180,14 +180,9 @@
     %}        % via https://tex.stackexchange.com/a/499070
 } 
 \block[linewidth=5pt]{1: Mining RS Repository Data To Understand Dev/Repo Interactions}{
-    \vspace{1em}
+    \begin{multicols}{2}
+    %\vspace{1em}
     {\fontsize{40}{40}\selectfont 
-        Research Software is any software used to generate research, across academic fields. 
-        % Dev Personas in OSS; SE  
-        % What do we know about how RSEs interact with their repos?  Repo usage at all %?  
-        % Data Mining background as a method 
-        \vspace{1em}
-
         %https://\textbf{zenodo}.org/api/records API was queried for software records with a DOI (common in published research software); 
         % records were selected with a `github.com' URL. These were presumed to be RS repositories. 
         
@@ -205,25 +200,32 @@
         % PLOT: issue ticket and PR usage yes vs no
         % UPGRADE: split yes into assigned vs unassigned 
         
-        \begin{tikzfigure}[This is the epcc logo]
-            \includegraphics[height=100mm]{epcclogo.png}
+        \begin{tikzfigure}
+            \includegraphics[height=270mm]{Figures/epccposter - DataMiningWorkflow.pdf}
         \end{tikzfigure}
-        Quisque varius id dolor sed congue. Proin mollis lorem et tellus sodales, sit amet hendrerit urna vulputate. Cras maximus, dolor non laoreet vulputate, nisl nisl cursus ex.} 
+
+        Research Software is any software used to generate research, across academic fields. 
+        % Dev Personas in OSS; SE  
+        % What do we know about how RSEs interact with their repos?  Repo usage at all %?  
+        % Data Mining background as a method 
+        \vspace{1em}
+        
+        Quisque varius id dolor sed congue. Proin mollis lorem et tellus sodales, sit amet hendrerit urna vulputate. Cras maximus, dolor non laoreet vulputate, nisl nisl cursus ex.
+        \begin{tikzfigure}[]
+        %\setlength{\belowcaptionskip}{-8pt}
+            \includegraphics[width=0.96\linewidth]{Figures/bars_usage.png}
+        \end{tikzfigure}
+        }
+        \end{multicols}
         }
 \block[linewidth=3pt]{}{
     \textbf{Contact: Felicity.Anderson@ed.ac.uk} \hspace{0.5em} 
-    \textbf{Supervised by:} Dr. Julien Sindt\textsuperscript{$\dagger$} \& Prof. Neil Chue Hong\textsuperscript{$\dagger$}. \newline
     \textbf{Acknowledgements:} Funded by EPSRC funding details details details.
     \textbf{References:} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed.
     }
 
 \column{.5}
 \block[linewidth=5pt]{2: More Responsibility = More Action?}{
-        \begin{tikzfigure}[]
-        %\setlength{\belowcaptionskip}{-8pt}
-            \includegraphics[width=0.45\linewidth]{epcclogo.png}
-            \includegraphics[width=0.45\linewidth]{epcclogo.png}
-        \end{tikzfigure}
     \begin{multicols}{2}
     
     {\fontsize{40}{40}\selectfont 
@@ -276,6 +278,10 @@
     \par
     
     \textbf{Developer Interaction Types} \newline 
+        \begin{tikzfigure}[]
+        %\setlength{\belowcaptionskip}{-8pt}
+            \includegraphics[width=0.95\linewidth]{Figures/correlations-lmplot.png}
+        \end{tikzfigure}
     %High impact grouping vs low impact grouping
     Developers assigned to 'BOTH' item types have almost 10\% higher commit numbers than all other assignment groups. 
     These might make up a 'highly interactive' type. 
@@ -295,15 +301,11 @@
     % WHY?
     [CITATION NEEDED!]     
     \newline
-    \vspace*{0.4em} \newline
-    \textbf{Limitations} \newline 
-    \textit{Skewed Sample}: using Zenodo & GitHub services means users already follow some 'best practice'.  
-    Sample is non-random (largest numbers of contributors) so may not represent smaller teams well. 
-    \textit{Variation}: 'accepted practices' within repositories may restrict developer freedom. 
-    RS projects may not be comparable in terms of development style, RS goals, or effort intensity.
-    \textit{Time}: projects may change over time, practices may change to reflect this - how can we capture 'typical' behaviour?  
-    \textit{Causation}: This work \textbf{does not establish causation} between assignment and commit numbers. 
-    \newline
+    \vspace*{0.4em} 
+    \textbf{Non-random selection} of larger repositories using Zenodo \& GitHub services means users already follow some 'best practice'.  
+    'Accepted practices' within repositories may restrict development options, while RS projects can be hard to compare in terms of development style, RS goals, or effort intensity.
+    \textbf{Projects change} over time, practices may change to reflect this - how can we capture 'typical' behaviour?  
+    This work \textbf{does not establish causation} between assignment and commit numbers. 
     }
 }
 \end{columns}

@@ -19,8 +19,9 @@
 \usepackage{multicol}
 \usepackage{lipsum}
 \usepackage{setspace}
+\usepackage{tcolorbox}
 
-\setlength{\columnsep}{2.5cm}
+\setlength{\columnsep}{2.3cm}
 \setlength{\columnseprule}{1mm}
 \pagecolor{Dandelion}
 
@@ -88,7 +89,6 @@
 \makeatother
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
-%\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
 \title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{85}{85}\selectfont {Identifying Developer Personas Could Create \\ Better Research Software Development} }}}
 \newcommand{\subtitle}{Are YOU an RS-10X? Mining GitHub to Describe Developer/Repository Interaction Types}
 \author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}, Dr. Julien Sindt\textsuperscript{$\dagger$} \& Prof. Neil Chue Hong\textsuperscript{$\dagger$}}}
@@ -156,18 +156,17 @@
 %\useblockstyle{Basic}
 \maketitle
 \begin{columns}
-\column{.5}
+\column{.49}
 
 \block[linewidth=5pt]{0: Identifying the Habits of Highly Effective Developers}{
     \vspace{0.4em}
     {\fontsize{42}{42}\selectfont 
     %\vspace{1em}
     \textbf{This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.}
-    \vspace{1em}
+    \vspace{0.7em}
     \begin{itemize}
     \setlength{\itemindent}{0.5em}
     \setlength\itemsep{0.2em}
-        %\item \textbf{Mining Research Software (RS) repository data can help understand RS development practices.}  
         \item Assignment to GitHub features \textbf{Issue Tickets and Pull Requests} (PRs) correlate with commit contributions.
         \item Individually limited metrics can be combined to give better picture of development responsibilities or activity.
         \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? Can they predict effectiveness?} 
@@ -181,127 +180,90 @@
 } 
 \block[linewidth=5pt]{1: Mining RS Repository Data To Understand Dev/Repo Interactions}{
     \begin{multicols}{2}
-    %\vspace{1em}
-    {\fontsize{40}{40}\selectfont 
-        %https://\textbf{zenodo}.org/api/records API was queried for software records with a DOI (common in published research software); 
-        % records were selected with a `github.com' URL. These were presumed to be RS repositories. 
-        
-        %These repositories were mined via \textbf{GitHub REST API} to gather repository statistics (xxxxxxx, yyyyyyyy, zzzzzzzz), contributor data (xxxxxxx, yyyyyyyy, zzzzzzzz), and issue ticket data and pull request data (xxxxxxx, yyyyyyyy, zzzzzzzz).  
-
-        % inclusion/exclusion criteria... languages, size, age, etc 
-
-        % table of stats for total repo dataset N=1823 number of devs; average commits; average repo age; average number of issue tickets / PRs; 
-
-
-        %This larger dataset was subset to select repositories with larger numbers of developer contributors: 
-
-        % table of stats for subset big10 dataset N=10: number of devs; average commits; average repo age; average number of issue tickets / PRs; 
-
-        % PLOT: issue ticket and PR usage yes vs no
-        % UPGRADE: split yes into assigned vs unassigned 
-        
+    \vspace{1em}
+    {\fontsize{32}{32}\selectfont 
         \begin{tikzfigure}
-            \includegraphics[height=270mm]{Figures/epccposter - DataMiningWorkflow.pdf}
+            \includegraphics[height=290mm]{Figures/epccposter - DataMiningWorkflow.pdf}
         \end{tikzfigure}
-
+        \columnbreak
         Research Software (RS) is any software used to generate research, across academic fields. 
-        % Dev Personas in OSS; SE  
-        % What do we know about how RSEs interact with their repos?  Repo usage at all %?  
-        % Data Mining background as a method 
         \vspace{1em}
         
-        Data for public GitHub projects with a DOI (often required for publication) across all fields have been used, with inclusion/exclusion criteria.
+        Public GitHub projects with a DOI (often required for publication) across all fields have been used.
+        \vspace{0.4em}
         \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
             \includegraphics[width=0.96\linewidth]{Figures/bars_usage.png}
         \end{tikzfigure}
-        }
-        \end{multicols}
-        }
+        
+        Of 1823 repositories identified from Zenodo, only 31\% use Issue Tickets or Pull Requests (35\%).}
+    {\fontsize{32}{32}\selectfont
+    \begin{tcolorbox}[colframe=white,colback=epccnavy!08, linewidth=0.8*linewidth]{   
+        Assignment and Commit data were gathered from \textbf{10 larger repositories} to form a pilot study dataset. 
+        \par
+        Developers were grouped by \textbf{`assignment categories'}, defined as \textit{being assigned to 1+ Issue and/or 1+ PR}
+    }
+   \end{tcolorbox}}
+    \end{multicols}
+}
 \block[linewidth=3pt]{}{
     \textbf{Contact: Felicity.Anderson@ed.ac.uk} \hspace{0.5em} 
     \textbf{Acknowledgements:} Work funded by a EPSRC DTA Scholarship.
-    \textbf{References:} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed.
     }
 
-\column{.5}
+\column{.51}
 \block[linewidth=5pt]{2: More Responsibility = More Action?}{
     \begin{multicols}{2}
-    
-    {\fontsize{40}{40}\selectfont 
-    %\textbf{Context \& Demographics} \newline 
-    %Around a third of repositories use Issues and PRs. 
-    %TEXT ABOUT CONTENT AND DEMOGRAPHICS ETC ETC ETC 
-    % RS repos with github.coms vs not. 
-    % repo age 
-    % repo size (N commits) 
-    % dev team size (N Devs) 
-    % repo recent activity  
-    % languages 
-    % Repos with issues and prs vs Not using.
-    % numbers of issues and PRs
-    Of 1823 repositories identified from Zenodo, only 31\% use Issue Tickets or Pull Requests (35\%).
-    %Amongst those who do, assignment of issues are not frequent.  
-    
-    In the pilot sample, NNN of NNN items in 10 repositories were assigned.   
-    % BEWARE! _s need to be escaped for usage. 
-    %\vspace*{0.1em}
-    % TABLE OF ASSIGNMENT CATEGORIES PERCENTAGE
+    \begin{tikzfigure}[]
+        %\setlength{\belowcaptionskip}{-8pt}
+            \includegraphics[width=0.60\linewidth]{Figures/bars-stacked-assignment.png}
+            \includegraphics[width=0.9\linewidth]{Figures/bars-mean-commits.png}
+        \end{tikzfigure}
+    %\vspace*{0.4em} 
+         \begin{tikzfigure}[]
+        %\setlength{\belowcaptionskip}{-8pt}
+            \includegraphics[width=1\linewidth]{Figures/correlations-lmplot.png}
+        \end{tikzfigure}
+    {\fontsize{28}{28}\selectfont 
     \begin{center}
-    \begin{tabular}{ l c c c} 
+    \begin{tabular}{ l c c} 
      %\hline
-     \textbf{Assignment}\\ \textbf{Category} & \textbf{N Devs} & \textbf{Devs (\%)} \\
+     \textbf{Category} & \textbf{N Devs} & \textbf{Devs (\%)} \\
      %\hline
-     BOTH & 48 & 18.5 \\ 
+     \textit{both} & 48 & \textit{18.5} \\ 
      %\hline
-     ISSUES\_ONLY & 58 & 22.4 \\
+     issues\_only & 58 & 22.4 \\
      %\hline
-     PRs\_ONLY & 5 & 0.02 \\
+     PRs\_only & 5 & 0.02 \\
      %\hline
-     NEITHER & 148 & 57.1 \\ 
+     neither & 148 & 57.1 \\ 
      %\hline
     \end{tabular}
     \end{center}
-    %\vspace*{0.1em}
-    Categories were defined as \textit{being assigned to 1+ Issue and/or 1+ PR}
-    \vspace*{0.4em} 
-    \par
-    
-    \begin{tikzfigure}[]
-        %\setlength{\belowcaptionskip}{-8pt}
-            \includegraphics[width=0.95\linewidth]{Figures/bars-mean-commits.png}
-        \end{tikzfigure}
-    Developers assigned to 'BOTH' item types have almost 10\% higher commit numbers than all other assignment groups. 
-    These might make up a 'highly interactive' type. 
-    % Contribution numbers overall.    
-    % Commits per dev contribution as proportion of their repo total  
-    % Commits per dev average across 10 repos by assignment category  
-    \vspace*{0.4em} 
-    \par
-    
-    %\textbf{Developer Interaction Types} \newline 
-        \begin{tikzfigure}[]
-        %\setlength{\belowcaptionskip}{-8pt}
-            \includegraphics[width=0.95\linewidth]{Figures/correlations-lmplot.png}
-        \end{tikzfigure}
-    %High impact grouping vs low impact grouping
-    Commit numbers positively correlate with number of items assigned. \textit{Activity and responsibility proxies seem to correlate.}
-    \par
+    }    
+    \vspace{0.2em}
+    {\fontsize{32}{32}\selectfont 
+    Commit numbers positively correlate with number of items assigned. 
+    Developers assigned to 'BOTH' item types are a minority but have \textbf{$\sim$10\% higher} commit numbers than all other assignment groups. 
+    \begin{tcolorbox}[colframe=white,colback=epccnavy!08, linewidth=0.8*linewidth]{        
+    Are 'highly interactive' developers potential `superstars' compared to less-committed developers?
+    \par}
+    \end{tcolorbox}
     }
     \end{multicols}
 }
 \block[linewidth=5pt]{3: Using RS Developer Personas in Future Work}{
-    \vspace{1em}
-    {\fontsize{40}{40}\selectfont 
+    %\vspace{1em}
+    {\fontsize{38}{38}\selectfont 
     \textbf{Ask Me About Limitations...} 
     Sample potentially skews towards 'best practice'; assignment vs activity; not all commits are equal; developer metrics problems; project comparison difficulties; capturing practice changes over time; correlation vs causation.
-    \vspace{0.5em} \newline
+    \vspace{0.3em} \newline
     \textbf{Future Work:}
     \begin{itemize}
         \item Using \textbf{additional properties} and \textbf{clustering analysis} to fully describe Personas
         \item Linking Personas to technical \textbf{software quality metrics} via static analysis
         \item \textbf{Distribution of Personas} within project teams
-        \item \textbf{Comparing developer Personas to effectiveness} (\textit{popularity, usage, citations}) of resulting software
+        \item \textbf{Comparing developer Personas to software effectiveness} (\textit{popularity, usage, citations})
     \end{itemize}  
     }
 }

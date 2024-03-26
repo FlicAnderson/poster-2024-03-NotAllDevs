@@ -89,7 +89,7 @@
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
 %\title{\parbox{\linewidth}{Do Research Software Developer Personas Exist? Are *YOU* an RS-10X? \\ Identifying Distinct Developer/Repository Interaction Types by Mining GitHub Data}}
-\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{78}{78}\selectfont {Identifying Research Software Developer Personas Could Create Better Research Software Developers} }}}
+\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{85}{85}\selectfont {Identifying Developer Personas Could Create \\ Better Research Software Development} }}}
 \newcommand{\subtitle}{Are YOU an RS-10X? Mining GitHub to Describe Developer/Repository Interaction Types}
 \author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}, Dr. Julien Sindt\textsuperscript{$\dagger$} \& Prof. Neil Chue Hong\textsuperscript{$\dagger$}}}
 \institute{\textsuperscript{$\dagger$}EPCC, University of Edinburgh}
@@ -210,7 +210,7 @@
         % Data Mining background as a method 
         \vspace{1em}
         
-        GitHub API data for public projects with a DOI (often required for publication) across all fields have been used, with inclusion/exclusion criteria.
+        Data for public GitHub projects with a DOI (often required for publication) across all fields have been used, with inclusion/exclusion criteria.
         \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
             \includegraphics[width=0.96\linewidth]{Figures/bars_usage.png}
@@ -220,7 +220,7 @@
         }
 \block[linewidth=3pt]{}{
     \textbf{Contact: Felicity.Anderson@ed.ac.uk} \hspace{0.5em} 
-    \textbf{Acknowledgements:} Funded by EPSRC funding details details details.
+    \textbf{Acknowledgements:} Work funded by a EPSRC DTA Scholarship.
     \textbf{References:} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum ipsum tortor, sit amet elementum eros auctor sed.
     }
 
@@ -229,9 +229,9 @@
     \begin{multicols}{2}
     
     {\fontsize{40}{40}\selectfont 
-    \textbf{Context \& Demographics} \newline 
+    %\textbf{Context \& Demographics} \newline 
     %Around a third of repositories use Issues and PRs. 
-    TEXT ABOUT CONTENT AND DEMOGRAPHICS ETC ETC ETC 
+    %TEXT ABOUT CONTENT AND DEMOGRAPHICS ETC ETC ETC 
     % RS repos with github.coms vs not. 
     % repo age 
     % repo size (N commits) 
@@ -240,52 +240,52 @@
     % languages 
     % Repos with issues and prs vs Not using.
     % numbers of issues and PRs
-    \vspace*{0.4em} 
-    \par
+    Of 1823 repositories identified from Zenodo, only 31\% use Issue Tickets or Pull Requests (35\%).
+    %Amongst those who do, assignment of issues are not frequent.  
     
-    \textbf{Assignment Practices} \newline  
-    NNN of NNN items in NNN repositories were assigned to 1+ developers.   
+    In the pilot sample, NNN of NNN items in 10 repositories were assigned.   
     % BEWARE! _s need to be escaped for usage. 
     %\vspace*{0.1em}
     % TABLE OF ASSIGNMENT CATEGORIES PERCENTAGE
     \begin{center}
     \begin{tabular}{ l c c c} 
      %\hline
-     \textbf{Assignment}\\ \textbf{Category} & \textbf{Devs (\%)} \\
+     \textbf{Assignment}\\ \textbf{Category} & \textbf{N Devs} & \textbf{Devs (\%)} \\
      %\hline
-     BOTH & 00 \\ 
+     BOTH & 48 & 18.5 \\ 
      %\hline
-     ISSUES\_ONLY & 00 \\
+     ISSUES\_ONLY & 58 & 22.4 \\
      %\hline
-     PRs\_ONLY & 00 \\
+     PRs\_ONLY & 5 & 0.02 \\
      %\hline
-     NEITHER & 00 \\ 
+     NEITHER & 148 & 57.1 \\ 
      %\hline
     \end{tabular}
     \end{center}
     %\vspace*{0.1em}
-    Assignment types were categorised as \textit{being assigned to 1+ Issue and/or 1+ PR}
+    Categories were defined as \textit{being assigned to 1+ Issue and/or 1+ PR}
     \vspace*{0.4em} 
     \par
     
-   
-    \textbf{Commit Contributions} \newline 
+    \begin{tikzfigure}[]
+        %\setlength{\belowcaptionskip}{-8pt}
+            \includegraphics[width=0.95\linewidth]{Figures/bars-mean-commits.png}
+        \end{tikzfigure}
+    Developers assigned to 'BOTH' item types have almost 10\% higher commit numbers than all other assignment groups. 
+    These might make up a 'highly interactive' type. 
     % Contribution numbers overall.    
     % Commits per dev contribution as proportion of their repo total  
     % Commits per dev average across 10 repos by assignment category  
-    Commit numbers positively correlate with number of items assigned. \textit{Activity and responsibility proxies seem to correlate.}
     \vspace*{0.4em} 
     \par
     
-    \textbf{Developer Interaction Types} \newline 
+    %\textbf{Developer Interaction Types} \newline 
         \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
             \includegraphics[width=0.95\linewidth]{Figures/correlations-lmplot.png}
         \end{tikzfigure}
     %High impact grouping vs low impact grouping
-    Developers assigned to 'BOTH' item types have almost 10\% higher commit numbers than all other assignment groups. 
-    These might make up a 'highly interactive' type. 
-    Differences between Assignment Category groupings lay RS Developer Personas groundwork.
+    Commit numbers positively correlate with number of items assigned. \textit{Activity and responsibility proxies seem to correlate.}
     \par
     }
     \end{multicols}
@@ -298,10 +298,10 @@
     \vspace{0.5em} \newline
     \textbf{Future Work:}
     \begin{itemize}
-        \item Using \textbf{additional properties} and \textbf{clustering analysis} to fully describe Personas;
-        \item Linking Personas to \textbf{software quality metrics};
-        \item \textbf{Distribution of Personas} within project teams;
-        \item \textbf{Comparing developer Personas to effectiveness} (\textit{popularity, usage, citations}) of resulting software.
+        \item Using \textbf{additional properties} and \textbf{clustering analysis} to fully describe Personas
+        \item Linking Personas to technical \textbf{software quality metrics} via static analysis
+        \item \textbf{Distribution of Personas} within project teams
+        \item \textbf{Comparing developer Personas to effectiveness} (\textit{popularity, usage, citations}) of resulting software
     \end{itemize}  
     }
 }

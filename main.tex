@@ -89,7 +89,7 @@
 \makeatother
 
 % Ref: https://tex.stackexchange.com/questions/263563/add-logos-beyond-the-title-tikzposter
-\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{85}{85}\selectfont {Identifying Developer Personas Could Create \\ Better Research Software Development} }}}
+\title{\parbox{\linewidth}{\fontseries{bx}\selectfont {\fontsize{85}{85}\selectfont {Identifying Developer Personas Could Create \\ Better Research Software (RS) Development} }}}
 \newcommand{\subtitle}{Are YOU an RS-10X? Mining GitHub to Describe Developer/Repository Interaction Types}
 \author{\textbf{Felicity `Flic' Anderson\textsuperscript{$\dagger$}, Dr. Julien Sindt\textsuperscript{$\dagger$} \& Prof. Neil Chue Hong\textsuperscript{$\dagger$}}}
 \institute{\textsuperscript{$\dagger$}EPCC, University of Edinburgh}
@@ -156,20 +156,20 @@
 %\useblockstyle{Basic}
 \maketitle
 \begin{columns}
-\column{.49}
+\column{.47}
 
 \block[linewidth=5pt]{0: Identifying the Habits of Highly Effective Developers}{
     \vspace{0.4em}
-    {\fontsize{42}{42}\selectfont 
+    {\fontsize{36}{38}\selectfont 
     %\vspace{1em}
-    \textbf{This pilot study attempts to identify `superstar developers' within 10 larger RS repositories by exploring assignment and contributions data.}
+    \textbf{This pilot study attempts to identify `superstar developers' within 10 larger Research Software (RS) repositories by exploring assignment and contributions data.}
     \vspace{0.7em}
     \begin{itemize}
     \setlength{\itemindent}{0.5em}
     \setlength\itemsep{0.2em}
         \item Assignment to GitHub features \textbf{Issue Tickets and Pull Requests} (PRs) correlate with commit contributions.
-        \item Individually limited metrics can be combined to give better picture of development responsibilities or activity.
-        \item \textbf{Can this approach locate distinct clusters of behaviours and define and describe RS developer personas? Can they predict effectiveness?} 
+        \item \textbf{Combining individually limited metrics} can give a better picture of development \\ \textbf{responsibilities or activity} by acting as proxies.
+        \item Can this approach \textbf{locate distinct clusters of behaviours and define and describe RS developer personas?} Can they predict effectiveness? 
     \end{itemize}
     %\vspace{1em}
     }
@@ -181,27 +181,31 @@
 \block[linewidth=5pt]{1: Mining RS Repository Data To Understand Dev/Repo Interactions}{
     \begin{multicols}{2}
     \vspace{1em}
-    {\fontsize{32}{32}\selectfont 
+    {\fontsize{30}{30}\selectfont 
         \begin{tikzfigure}
-            \includegraphics[height=290mm]{Figures/epccposter - DataMiningWorkflow.pdf}
+            \includegraphics[height=287mm]{Figures/epccposter - DataMiningWorkflow.pdf}
         \end{tikzfigure}
+        %\columnbreak
+        Research Software (RS) is any software used \\ to generate research, across academic fields. \par \newline
         \columnbreak
-        Research Software (RS) is any software used to generate research, across academic fields. 
-        \vspace{1em}
-        
-        Public GitHub projects with a DOI (often required for publication) across all fields have been used.
+        %\vspace{1em}
+        Public GitHub projects with a Zenodo DOI (often \\ required for publication) have been used. \par \newline
+        \vspace{0.4em}
+        Zenodo is an multidisciplinary open repository for depositing research outputs and minting DOIs.
         \vspace{0.4em}
         \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
-            \includegraphics[width=0.96\linewidth]{Figures/bars_usage.png}
+            \includegraphics[width=0.98\linewidth]{Figures/bars_usage.png}
         \end{tikzfigure}
         
         Of 1823 repositories identified from Zenodo, only 31\% use Issue Tickets or Pull Requests (35\%).}
-    {\fontsize{32}{32}\selectfont
-    \begin{tcolorbox}[colframe=white,colback=epccnavy!08, linewidth=0.8*linewidth]{   
+        \vspace{0.4em}
+    {\fontsize{30}{30}\selectfont
+    \begin{tcolorbox}[colframe=white,colback=epccnavy!25, linewidth=0.8*linewidth]{   
         Assignment and Commit data were gathered from \textbf{10 larger repositories} to form a pilot study dataset. 
         \par
-        Developers were grouped by \textbf{`assignment categories'}, defined as \textit{being assigned to 1+ Issue and/or 1+ PR}
+        \vspace{0.4em}
+        Developers were grouped into \textbf{`assignment \\ categories'}, defined as \textit{being assigned to 1+ \\ Issue and/or 1+ PR}
     }
    \end{tcolorbox}}
     \end{multicols}
@@ -211,50 +215,40 @@
     \textbf{Acknowledgements:} Work funded by a EPSRC DTA Scholarship.
     }
 
-\column{.51}
+\column{.53}
 \block[linewidth=5pt]{2: More Responsibility = More Action?}{
     \begin{multicols}{2}
     \begin{tikzfigure}[]
         %\setlength{\belowcaptionskip}{-8pt}
-            \includegraphics[width=0.60\linewidth]{Figures/bars-stacked-assignment.png}
-            \includegraphics[width=0.9\linewidth]{Figures/bars-mean-commits.png}
+            %\includegraphics[width=0.58\linewidth]{Figures/bars-stacked-assignment.png}
+            %\includegraphics[width=0.35\linewidth]{Figures/devs-table.png}
+            \includegraphics[width=1\linewidth]{Figures/combodevtable.png}
         \end{tikzfigure}
-    %\vspace*{0.4em} 
-         \begin{tikzfigure}[]
-        %\setlength{\belowcaptionskip}{-8pt}
-            \includegraphics[width=1\linewidth]{Figures/correlations-lmplot.png}
-        \end{tikzfigure}
-    {\fontsize{28}{28}\selectfont 
-    \begin{center}
-    \begin{tabular}{ l c c} 
-     %\hline
-     \textbf{Category} & \textbf{N Devs} & \textbf{Devs (\%)} \\
-     %\hline
-     \textit{both} & 48 & \textit{18.5} \\ 
-     %\hline
-     issues\_only & 58 & 22.4 \\
-     %\hline
-     PRs\_only & 5 & 0.02 \\
-     %\hline
-     neither & 148 & 57.1 \\ 
-     %\hline
-    \end{tabular}
-    \end{center}
-    }    
-    \vspace{0.2em}
-    {\fontsize{32}{32}\selectfont 
-    Commit numbers positively correlate with number of items assigned. 
-    Developers assigned to 'BOTH' item types are a minority but have \textbf{$\sim$10\% higher} commit numbers than all other assignment groups. 
-    \begin{tcolorbox}[colframe=white,colback=epccnavy!08, linewidth=0.8*linewidth]{        
-    Are 'highly interactive' developers potential `superstars' compared to less-committed developers?
+ 
+    %\vspace{0.2em}
+    {\fontsize{30}{30}\selectfont 
+    \textbf{Assignment is uncommon} even within repositories using Issue Tickets and Pull Requests. \par \newline
+    \vspace{0.5em}
+    Commit numbers \textbf{positively correlate} with number of items assigned. \par \newline
+    \vspace{0.5em}
+    Developers assigned to 'both' item types are a minority \\ but have \textbf{$\sim$10\% higher commit numbers} than other assignment groups. \par \newline
+    \vspace{0.5em}
+    Do `both'-type developers split into \textbf{two trends?} \par
+    \begin{tcolorbox}[colframe=white,colback=epccnavy!25, linewidth=0.8*linewidth]{\textbf{Are 'highly interactive' developers potential `superstars'} compared to less-committed developers?
     \par}
     \end{tcolorbox}
     }
+         \begin{tikzfigure}[]
+        %\setlength{\belowcaptionskip}{-8pt}
+            \includegraphics[width=0.95\linewidth]{Figures/correlations-lmplot.png}
+            \vspace{0.2em}
+            \includegraphics[width=0.80\linewidth]{Figures/bars-mean-commits.png}
+        \end{tikzfigure}
     \end{multicols}
 }
 \block[linewidth=5pt]{3: Using RS Developer Personas in Future Work}{
     %\vspace{1em}
-    {\fontsize{38}{38}\selectfont 
+    {\fontsize{34}{34}\selectfont 
     \textbf{Ask Me About Limitations...} 
     Sample potentially skews towards 'best practice'; assignment vs activity; not all commits are equal; developer metrics problems; project comparison difficulties; capturing practice changes over time; correlation vs causation.
     \vspace{0.3em} \newline
